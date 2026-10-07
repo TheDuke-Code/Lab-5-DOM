@@ -35,11 +35,29 @@ let history = [];
 function validateForm() {
     // Kontrollera formulärets obligatoriska fält
 
+    // Töm gamla felmeddelanden
+    errors = [];
+
+    // Kontrollera namnfältet
+    if (fullnameInput.value === "") {
+        errors.push("Du måste fylla i ditt namn.");
+    }
+
+    // Kontrollera e-postfältet
+    if (emailInput.value === "") {
+        errors.push("Du måste fylla i din mail.");
+    }
+
+    // Kontrollera telefonfältet
+    if (phoneInput.value === "") {
+        errors.push("Du måste fylla i ditt telefonnummer.");
+    }
+
     // Visa eventuella felmeddelanden
 
     // Returnera resultatet (true eller false) av valideringen
-}
 
+}
 
 /**
  * Visar felmeddelanden på sidan.
@@ -120,7 +138,8 @@ function deleteHistory() {
 // - skapa studentkort om valideringen lyckas
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log(fullnameInput.value);
+    validateForm();
+    console.log(errors);
 });
 
 // När användaren klickar på "Rensa"
