@@ -57,6 +57,11 @@ function validateForm() {
 
     // Returnera resultatet (true eller false) av valideringen
 
+    if (errors.length === 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -138,8 +143,8 @@ function deleteHistory() {
 // - skapa studentkort om valideringen lyckas
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    validateForm();
-    console.log(errors);
+    let isValid = validateForm();
+    console.log(isValid);
 });
 
 // När användaren klickar på "Rensa"
