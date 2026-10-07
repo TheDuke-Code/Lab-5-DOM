@@ -120,7 +120,7 @@ function deleteHistory() {
 // - skapa studentkort om valideringen lyckas
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log("Formuläret skickades!");
+    console.log(fullnameInput.value);
 });
 
 // När användaren klickar på "Rensa"
