@@ -54,7 +54,7 @@ function validateForm() {
     }
 
     // Visa eventuella felmeddelanden
-
+    displayErrors();
     // Returnera resultatet (true eller false) av valideringen
 
     if (errors.length === 0) {
@@ -69,8 +69,15 @@ function validateForm() {
  */
 function displayErrors() {
     // Rensa tidigare felmeddelanden
+    errorList.innerHTML = "";
 
     // Skriv ut aktuella felmeddelanden till DOM
+    for (let i = 0; i < errors.length; i++) {
+        // Körs 1 gång för varje felmeddelanden
+        let li = document.createElement("li");
+        li.textContent = errors[i];
+        errorList.appendChild(li);
+    }
 }
 
 
