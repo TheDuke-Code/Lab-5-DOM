@@ -89,12 +89,17 @@ function createStudentCard() {
     let fullname = fullnameInput.value;
     let email = emailInput.value;
     let phone = phoneInput.value;
+    let font = fontSelect.value;
 
     // Uppdatera studentkortet
     previewFullname.textContent = fullname;
     previewEmail.textContent = email;
     previewPhone.textContent = phone;
-    
+
+    // Eget typsnitt
+    previewFullname.style.fontFamily = font;
+    previewEmail.style.fontFamily = font;
+    previewPhone.style.fontFamily = font;
     // Lägg till studentkortet i historiken
 
     // Spara och uppdatera historiken
