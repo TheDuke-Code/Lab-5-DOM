@@ -86,9 +86,15 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
+    let fullname = fullnameInput.value;
+    let email = emailInput.value;
+    let phone = phoneInput.value;
 
     // Uppdatera studentkortet
-
+    previewFullname.textContent = fullname;
+    previewEmail.textContent = email;
+    previewPhone.textContent = phone;
+    
     // Lägg till studentkortet i historiken
 
     // Spara och uppdatera historiken
@@ -147,11 +153,15 @@ function deleteHistory() {
 
 // När formuläret skickas:
 // - validera inmatningen
-// - skapa studentkort om valideringen lyckas
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     let isValid = validateForm();
     console.log(isValid);
+
+    // - skapa studentkort om valideringen lyckas
+    if (isValid === true) {
+        createStudentCard();
+    }
 });
 
 // När användaren klickar på "Rensa"
