@@ -112,6 +112,7 @@ function createStudentCard() {
 
     // Spara och uppdatera historiken
     saveHistory();
+    renderHistory();
 }
 
 
@@ -140,8 +141,16 @@ function loadHistory() {
  */
 function renderHistory() {
     // Rensa tidigare visad historik
+    historySection.innerHTML = "";
 
     // Skriv ut innehållet i history till DOM
+    for (let i = 0; i < history.length; i++) {
+        let card = history[i];
+        let p = document.createElement("p");
+        p.textContent = card.fullname + ", " + card.email + ", " + card.phone;
+        p.style.fontFamily = card.font;
+        historySection.appendChild(p);
+    }
 }
 
 
