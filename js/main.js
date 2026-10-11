@@ -100,6 +100,7 @@ function createStudentCard() {
     previewFullname.style.fontFamily = font;
     previewEmail.style.fontFamily = font;
     previewPhone.style.fontFamily = font;
+
     // Lägg till studentkortet i historiken
     let card = {
         fullname: fullname,
@@ -108,9 +109,9 @@ function createStudentCard() {
         font: font
     };
     history.unshift(card);
-    console.log(history);
 
     // Spara och uppdatera historiken
+    saveHistory();
 }
 
 
@@ -119,6 +120,8 @@ function createStudentCard() {
  */
 function saveHistory() {
     // Spara history i localStorage
+    let historyText = JSON.stringify(history);
+    localStorage.setItem("history", historyText);
 }
 
 
