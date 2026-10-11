@@ -131,8 +131,12 @@ function saveHistory() {
  */
 function loadHistory() {
     // Hämta eventuell sparad historik
+let historyText = localStorage.getItem("history");
 
     // Uppdatera history
+    if (historyText !== null) {
+        history = JSON.parse(historyText);
+    }
 }
 
 
@@ -209,8 +213,10 @@ clearButton.addEventListener("click", function () {
 
 // När användaren klickar på "Radera historik"
 deleteHistoryButton.addEventListener("click", function () {
-    deleteHistory ();
+    deleteHistory();
 });
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
+loadHistory();
+renderHistory();
