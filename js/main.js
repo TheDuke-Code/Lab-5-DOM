@@ -179,8 +179,11 @@ function clearForm() {
  */
 function deleteHistory() {
     // Radera sparad historik
+    localStorage.removeItem("history");
 
     // Uppdatera history och visningen på sidan
+    history = [];
+    renderHistory();
 }
 
 
@@ -205,7 +208,9 @@ clearButton.addEventListener("click", function () {
 });
 
 // När användaren klickar på "Radera historik"
-
+deleteHistoryButton.addEventListener("click", function () {
+    deleteHistory ();
+});
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
