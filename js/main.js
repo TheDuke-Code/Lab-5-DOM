@@ -55,6 +55,7 @@ function validateForm() {
 
     // Visa eventuella felmeddelanden
     displayErrors();
+    
     // Returnera resultatet (true eller false) av valideringen
 
     if (errors.length === 0) {
@@ -131,7 +132,7 @@ function saveHistory() {
  */
 function loadHistory() {
     // Hämta eventuell sparad historik
-let historyText = localStorage.getItem("history");
+    let historyText = localStorage.getItem("history");
 
     // Uppdatera history
     if (historyText !== null) {
@@ -198,7 +199,6 @@ function deleteHistory() {
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     let isValid = validateForm();
-    console.log(isValid);
 
     // - skapa studentkort om valideringen lyckas
     if (isValid === true) {
